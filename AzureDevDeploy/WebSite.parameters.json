@@ -1,0 +1,54 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "value": "synthbot-dev-foo357346345877546666"
+        },
+        "hostingPlanName": {
+            "value": "Synthbot-DiscordBot-Dev-Plan"
+        },
+        "location": {
+            "value": "North Central US"
+        },
+        "hostingEnvironment": {
+            "value": ""
+        },
+        "serverFarmResourceGroup": {
+            "value": "synthbot-dev"
+        },
+        "subscriptionId": {
+            "value": "1eb8c907-9a1c-4d0f-bab6-6e5c3604582c"
+        },
+        "sqlElasticPoolName": {
+            "value": "synthbot-dev-db-pool"
+        },
+        "sqlServerName": {
+            "value": "synthbot-dev-db"
+        },
+        "giphyToken": {
+            "value": ""
+        },
+        "youtubeToken": {
+            "value": ""
+        },
+        "discordBotToken": {
+            "value": ""
+        },
+        "synthbot-web-dbName": {
+            "value": ""
+        },
+        "synthbotTokenSharedSecret": {
+            "value": ""
+        },
+        "spotifyApiClientId": {
+            "value": ""
+        },
+        "spotifyApiClientSecret": {
+            "value": ""
+        },
+        "signalrRetryCountLimit": {
+            "value": 90
+        }
+    }
+}

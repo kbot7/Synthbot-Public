@@ -1,0 +1,183 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "type": "string"
+        },
+        "hostingPlanName": {
+            "type": "string",
+            "defaultValue": "Synthbot-DiscordBot-Dev-Plan"
+        },
+        "hostingEnvironment": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "serverFarmResourceGroup": {
+            "type": "string",
+            "defaultValue": "synthbot-dev"
+        },
+        "subscriptionId": {
+            "type": "string",
+            "defaultValue": "1eb8c907-9a1c-4d0f-bab6-6e5c3604582c"
+        },
+        "sqlElasticPoolName": {
+            "type": "string",
+            "defaultValue": "synthbot-dev-db-pool"
+        },
+        "sqlServerName": {
+            "type": "string",
+            "defaultValue": "synthbot-dev-db"
+        },
+        "giphyToken": {
+            "type": "securestring"
+        },
+        "youtubeToken": {
+            "type": "securestring"
+        },
+        "discordBotToken": {
+            "type": "securestring"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "North Central US",
+            "metadata": {
+                "description": "Location for all resources."
+            }
+        },
+        "synthbot-web-dbName": {
+            "type": "string",
+            "minLength": 1
+        },
+        "synthbotTokenSharedSecret": {
+            "type": "string"
+        },
+        "spotifyApiClientId": {
+            "type": "string"
+        },
+        "spotifyApiClientSecret": {
+            "type": "string"
+        },
+        "signalrRetryCountLimit": {
+            "type": "int"
+        }
+    },
+    "variables": {
+        "databaseName": "[parameters('synthbot-web-dbName')]",
+        "fullyQualifiedsynthbot-web-dbName": "[concat(parameters('sqlServerName'), '/', parameters('synthbot-web-dbName'))]"
+    },
+    "resources": [{
+            "apiVersion": "2017-05-10",
+            "name": "synthbot-web-db",
+            "type": "Microsoft.Resources/deployments",
+            "resourceGroup": "[parameters('serverFarmResourceGroup')]",
+            "subscriptionId": "[parameters('subscriptionId')]",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [{
+                        "name": "[variables('fullyQualifiedsynthbot-web-dbName')]",
+                        "type": "Microsoft.Sql/servers/databases",
+                        "location": "[parameters('location')]",
+                        "apiVersion": "2014-04-01-preview",
+                        "tags": {
+                            "displayName": "synthbot-web-db"
+                        },
+                        "properties": {
+                            "collation": "SQL_Latin1_General_CP1_CI_AS",
+                            "edition": "Basic",
+                            "maxSizeBytes": "1073741824",
+                            "elasticPoolName": "[parameters('sqlElasticPoolName')]"
+
+                        }
+                    }]
+                },
+                "parameters": {}
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites",
+            "name": "[parameters('name')]",
+            "apiVersion": "2016-03-01",
+            "location": "[parameters('location')]",
+            "tags": {
+                "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName')))]": "empty",
+                "displayName": "synthbot-web"
+            },
+            "dependsOn": [
+                "[resourceId('microsoft.insights/components/', parameters('name'))]"
+            ],
+            "properties": {
+                "siteProperties": {},
+
+                "siteConfig": {
+                    "appSettings": [{
+                            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+                            "value": "[reference(resourceId('microsoft.insights/components/', parameters('name')), '2015-05-01').InstrumentationKey]"
+                        },
+                        {
+                            "name": "giphy.token",
+                            "value": "[parameters('giphyToken')]"
+                        },
+                        {
+                            "name": "youtube.api.token",
+                            "value": "[parameters('youtubeToken')]"
+                        },
+                        {
+                            "name": "discord.bot.token",
+                            "value": "[parameters('discordBotToken')]"
+                        },
+                        {
+                            "name": "synthbot.token.sharedsecret",
+                            "value": "[parameters('synthbotTokenSharedSecret')]"
+                        },
+                        {
+                            "name": "spotify.api.clientid",
+                            "value": "[parameters('spotifyApiClientId')]"
+                        },
+                        {
+                            "name": "spotify.api.clientsecret",
+                            "value": "[parameters('spotifyApiClientSecret')]"
+                        },
+                        {
+                            "name": "SynthbotSignalR:StartTryLimit",
+                            "value": "[parameters('signalrRetryCountLimit')]"
+                        }
+                    ],
+                    "connectionStrings": [{
+                        "name": "default",
+                        "connectionString": "placeholder",
+                        "type": "SQLAzure"
+                    }],
+                    "netFrameworkVersion": "v4.7",
+                    "use32BitWorkerProcess": false,
+                    "alwaysOn": true,
+                    "requestTracingEnabled": true,
+                    "webSocketsEnabled": true,
+                    "httpsOnly": true
+                },
+                "name": "[parameters('name')]",
+                "serverFarmId": "[concat('/subscriptions/', parameters('subscriptionId'),'/resourcegroups/', parameters('serverFarmResourceGroup'), '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
+                "hostingEnvironment": "[parameters('hostingEnvironment')]"
+            }
+        },
+        {
+            "type": "microsoft.insights/components",
+            "name": "[parameters('name')]",
+            "apiVersion": "2015-05-01",
+            "location": "East US",
+            "tags": {
+                "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', parameters('name'))]": "Resource",
+                "displayName": "synthbot-web-insights"
+            },
+            "properties": {
+                "ApplicationId": "[parameters('name')]",
+                "Request_Source": "IbizaWebAppExtensionCreate"
+            }
+        }
+    ]
+}

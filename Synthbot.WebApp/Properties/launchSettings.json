@@ -1,0 +1,20 @@
+﻿{
+	"iisSettings": {
+		"windowsAuthentication": false,
+		"anonymousAuthentication": true,
+		"iisExpress": {
+			"applicationUrl": "http://localhost:14302",
+			"sslPort": 0
+		}
+	},
+	"profiles": {
+		"Synthbot.WebApp": {
+			"commandName": "Project",
+			"launchBrowser": false,
+			"applicationUrl": "http://localhost:6050",
+			"environmentVariables": {
+				"ASPNETCORE_ENVIRONMENT": "Development"
+			}
+		}
+	}
+}

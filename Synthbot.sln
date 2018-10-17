@@ -1,0 +1,102 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synthbot.DiscordBot", "Synthbot.DiscordBot\Synthbot.DiscordBot.csproj", "{13750CE5-03A2-4A9B-9675-1DE5F739B6E6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synthbot.DiscordBot.UnitTests", "Synthbot.DiscordBot.UnitTests\Synthbot.DiscordBot.UnitTests.csproj", "{80A48CBD-7FCC-4A07-B339-B4EB86F507E7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synthbot.DiscordBot.IntegrationTests", "Synthbot.DiscordBot.IntegrationTests\Synthbot.DiscordBot.IntegrationTests.csproj", "{FCB40D85-8A15-4B65-8071-3BF95787B28A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{52086110-B86F-44A1-890E-21FE9BF5E549}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		CODEOWNERS = CODEOWNERS
+		publish.cmd = publish.cmd
+		AzureDevDeploy\SetConfig.ps1 = AzureDevDeploy\SetConfig.ps1
+		AzureDevDeploy\SetDiscordBotToken.ps1 = AzureDevDeploy\SetDiscordBotToken.ps1
+		AzureDevDeploy\SetWebAppName.ps1 = AzureDevDeploy\SetWebAppName.ps1
+		AzureDevDeploy\WebSite.json = AzureDevDeploy\WebSite.json
+		AzureDevDeploy\WebSite.parameters.json = AzureDevDeploy\WebSite.parameters.json
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synthbot.Common", "Synthbot.Common\Synthbot.Common.csproj", "{67CB1691-0A11-489C-A2EF-655F4B89F07A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synthbot.Common.UnitTests", "Synthbot.Common.UnitTests\Synthbot.Common.UnitTests.csproj", "{39035042-C8F2-4FDD-90CE-639D49F9DDD1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synthbot.WebApp", "Synthbot.WebApp\Synthbot.WebApp.csproj", "{A664229E-B2CA-4850-BFF0-D84037CD1C1B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synthbot.WebApp.Client", "Synthbot.WebApp.Client\Synthbot.WebApp.Client.csproj", "{D3DDE538-8949-4C9E-B34F-33442A722FE2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6BFAB547-F97F-4BFE-83A9-40684A79D8D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{9FCDA35E-C3B0-45DC-94BD-0E13E6CE2DAF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synthbot.DAL", "Synthbot.DAL\Synthbot.DAL.csproj", "{EC8DDA97-6A93-42AC-8856-7D6D5E018A13}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synthbot.DAL.Tests", "Synthbot.DAL.Tests\Synthbot.DAL.Tests.csproj", "{20066ECC-5C7B-4722-85F7-6ED2F0637E5A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13750CE5-03A2-4A9B-9675-1DE5F739B6E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13750CE5-03A2-4A9B-9675-1DE5F739B6E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13750CE5-03A2-4A9B-9675-1DE5F739B6E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13750CE5-03A2-4A9B-9675-1DE5F739B6E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80A48CBD-7FCC-4A07-B339-B4EB86F507E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80A48CBD-7FCC-4A07-B339-B4EB86F507E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80A48CBD-7FCC-4A07-B339-B4EB86F507E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80A48CBD-7FCC-4A07-B339-B4EB86F507E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCB40D85-8A15-4B65-8071-3BF95787B28A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCB40D85-8A15-4B65-8071-3BF95787B28A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCB40D85-8A15-4B65-8071-3BF95787B28A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCB40D85-8A15-4B65-8071-3BF95787B28A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67CB1691-0A11-489C-A2EF-655F4B89F07A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67CB1691-0A11-489C-A2EF-655F4B89F07A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67CB1691-0A11-489C-A2EF-655F4B89F07A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67CB1691-0A11-489C-A2EF-655F4B89F07A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39035042-C8F2-4FDD-90CE-639D49F9DDD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39035042-C8F2-4FDD-90CE-639D49F9DDD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39035042-C8F2-4FDD-90CE-639D49F9DDD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39035042-C8F2-4FDD-90CE-639D49F9DDD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A664229E-B2CA-4850-BFF0-D84037CD1C1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A664229E-B2CA-4850-BFF0-D84037CD1C1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A664229E-B2CA-4850-BFF0-D84037CD1C1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A664229E-B2CA-4850-BFF0-D84037CD1C1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3DDE538-8949-4C9E-B34F-33442A722FE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3DDE538-8949-4C9E-B34F-33442A722FE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3DDE538-8949-4C9E-B34F-33442A722FE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3DDE538-8949-4C9E-B34F-33442A722FE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC8DDA97-6A93-42AC-8856-7D6D5E018A13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC8DDA97-6A93-42AC-8856-7D6D5E018A13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC8DDA97-6A93-42AC-8856-7D6D5E018A13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC8DDA97-6A93-42AC-8856-7D6D5E018A13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20066ECC-5C7B-4722-85F7-6ED2F0637E5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20066ECC-5C7B-4722-85F7-6ED2F0637E5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20066ECC-5C7B-4722-85F7-6ED2F0637E5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20066ECC-5C7B-4722-85F7-6ED2F0637E5A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{13750CE5-03A2-4A9B-9675-1DE5F739B6E6} = {6BFAB547-F97F-4BFE-83A9-40684A79D8D7}
+		{80A48CBD-7FCC-4A07-B339-B4EB86F507E7} = {9FCDA35E-C3B0-45DC-94BD-0E13E6CE2DAF}
+		{FCB40D85-8A15-4B65-8071-3BF95787B28A} = {9FCDA35E-C3B0-45DC-94BD-0E13E6CE2DAF}
+		{67CB1691-0A11-489C-A2EF-655F4B89F07A} = {6BFAB547-F97F-4BFE-83A9-40684A79D8D7}
+		{39035042-C8F2-4FDD-90CE-639D49F9DDD1} = {9FCDA35E-C3B0-45DC-94BD-0E13E6CE2DAF}
+		{A664229E-B2CA-4850-BFF0-D84037CD1C1B} = {6BFAB547-F97F-4BFE-83A9-40684A79D8D7}
+		{D3DDE538-8949-4C9E-B34F-33442A722FE2} = {6BFAB547-F97F-4BFE-83A9-40684A79D8D7}
+		{EC8DDA97-6A93-42AC-8856-7D6D5E018A13} = {6BFAB547-F97F-4BFE-83A9-40684A79D8D7}
+		{20066ECC-5C7B-4722-85F7-6ED2F0637E5A} = {9FCDA35E-C3B0-45DC-94BD-0E13E6CE2DAF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9B2129B6-F19D-4359-9C11-1683F378613E}
+	EndGlobalSection
+EndGlobal
